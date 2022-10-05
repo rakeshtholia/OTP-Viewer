@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="clickListener"
+            type="com.solvabit.otpviewer.ui.allMessages.OTPClickListener" />
+        <variable
+            name="message"
+            type="com.solvabit.otpviewer.model.Message" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/send_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/text_box"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/message_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/sender_name_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="all"
+                android:fontFamily="@font/lato"
+                android:linksClickable="false"
+                android:textColorLink="#2093FB"
+                android:text="@{message.body}"
+                android:textColor="#232A32"
+                android:textSize="16sp"
+                tools:text="@string/temp_msg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:visibility="@{message.otp.containsOTP == true ? View.VISIBLE : View.GONE}"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/white"
+                android:onClick="@{() -> clickListener.onClick(message)}"
+                android:background="@drawable/copy_button_bg"
+                tools:text="COPY 674584"
+                android:text="@{@string/copy_otp_text(message.otp.otpCode)}"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView6"
+            bindFormatDate="@{message.date}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/lato_light"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/text_box"
+            app:layout_constraintEnd_toEndOf="@+id/text_box"
+            app:layout_constraintStart_toStartOf="@+id/text_box"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

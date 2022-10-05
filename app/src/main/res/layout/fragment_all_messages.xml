@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.solvabit.otpviewer.ui.allMessages.AllMessagesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.allMessages.AllMessagesFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/all_messages_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="@dimen/elevation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:theme="@style/toolbar_style"
+            app:titleTextAppearance="@style/Toolbar.TitleText">
+            <ImageView
+                android:id="@+id/all_messages_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                android:layout_marginEnd="16dp"/>
+            <TextView
+                android:text="@{viewModel.messagesList[0].address}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/title_action_bar"
+                tools:text="JK-JIO4658"/>
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/all_messages_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            app:bindAllMessages="@{viewModel.messagesList}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/all_messages_toolbar"
+            app:stackFromEnd="true"
+            android:layout_marginBottom="12dp"
+            tools:listitem="@layout/message_card" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="toolbar_style" >
+        <!--This line changes the color of text in Toolbar-->
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/primary_textSize</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="title_action_bar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">#B3000000</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>

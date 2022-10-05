@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">OTP Viewer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
+    <string name="copy_otp_text">COPY %s</string>
+    <string name="temp_msg">100% data quota exhausted as on 22-Jan-22 19:31. Jio Number : 8077177736 Plan Name : Rs 119-14D-1.5GB/D Bucket Name : Data  Internet speed will click https://www.jio.com/dl/data_voucher and recharge. Dial 1991, to know your current balance, validity, plan details and for exciting recharge plans.</string>
+    <string name="message_notification_channel_id">otp_channel</string>
+    <string name="message_notification_channel_name">otp_message</string>
+    <string name="message_title">Messages</string>
+</resources>
